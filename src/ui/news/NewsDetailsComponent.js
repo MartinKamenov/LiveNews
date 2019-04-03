@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Text } from 'react-native';
 
-const NewsDetailsComponent = ({ news }) => (
-    <Text>{news.title}</Text>
+const NewsDetailsComponent = ({ news, handlePress }) => (
+    <Text onPress={() => handlePress(news.title)}>{news.title}</Text>
 );
 
 NewsDetailsComponent.propTypes = {

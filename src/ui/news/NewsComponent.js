@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, ProgressBarAndroid } from 'react-native';
+import { StyleSheet, Text, View, ScrollView,
+    ProgressBarAndroid, ToastAndroid } from 'react-native';
 import NewsDetailsComponent from './NewsDetailsComponent';
 
 class NewsComponent extends Component {
@@ -7,6 +8,10 @@ class NewsComponent extends Component {
         isLoading: true,
         news: []
     };
+
+    handlePress(newsTitle) {
+        ToastAndroid.show(newsTitle, ToastAndroid.SHORT);
+    }
     componentDidMount() {
         return fetch('https://fullcontrol-api.herokuapp.com/news/sport')
             .then((response) => response.json())
@@ -32,7 +37,9 @@ class NewsComponent extends Component {
                 <Text>News</Text>
                 <ScrollView>
                     {this.state.news.map((singleNews, i) => (
-                        <NewsDetailsComponent key={i} news={singleNews}/>
+                        <NewsDetailsComponent key={i}
+                            news={singleNews}
+                            handlePress={this.handlePress}/>
                     ))}
                 </ScrollView>
             </View>
