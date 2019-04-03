@@ -1,16 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'react-native';
+import { Text, Image, View } from 'react-native';
 
 const NewsDetailsComponent = ({ news, handlePress }) => (
-    <Text onPress={() => handlePress(news.title)}>{news.title}</Text>
+    <View>
+        <Image 
+            style={{width: 66, height: 58}}
+            source={{uri: news.urlToImage}}/>
+        <Text onPress={() => handlePress(news.title)}>{news.title}</Text>
+    </View>
 );
 
 NewsDetailsComponent.propTypes = {
     news: PropTypes.shape({
         author: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired
+        description: PropTypes.string.isRequired,
+        urlToImage: PropTypes.string.isRequired
     })
 };
  
