@@ -7,7 +7,7 @@ const NewsDetailsComponent = ({ news, handlePress }) => (
         <Image 
             style={{width: 66, height: 58}}
             source={{uri: news.urlToImage}}/>
-        <Text onPress={() => handlePress(news.title)}>{news.title}</Text>
+        <Text onPress={() => handlePress(news.url)}>{news.title}</Text>
     </View>
 );
 
@@ -16,7 +16,8 @@ NewsDetailsComponent.propTypes = {
         author: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        urlToImage: PropTypes.string.isRequired
+        urlToImage: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired
     })
 };
  

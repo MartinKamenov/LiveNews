@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView,
-    ProgressBarAndroid, ToastAndroid } from 'react-native';
+    ProgressBarAndroid, ToastAndroid, Linking } from 'react-native';
 import NewsDetailsComponent from './NewsDetailsComponent';
 import apiService from '../../services/api-service';
 
@@ -10,8 +10,9 @@ class NewsComponent extends Component {
         news: []
     };
 
-    handlePress(newsTitle) {
-        ToastAndroid.show(newsTitle, ToastAndroid.SHORT);
+    handlePress(url) {
+        ToastAndroid.show(url, ToastAndroid.SHORT);
+        Linking.openURL(url);
     }
     componentDidMount() {
         return apiService.getAllSportNews()
