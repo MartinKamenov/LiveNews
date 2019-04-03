@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, ProgressBarAndroid } from 'react-native';
+import NewsDetailsComponent from './NewsDetailsComponent';
 
 class NewsComponent extends Component {
     state = {
@@ -30,9 +31,9 @@ class NewsComponent extends Component {
             <View style={styles.container}>
                 <Text>News</Text>
                 <ScrollView>
-                {this.state.news.map((singleNews, i) => (
-                    <Text key={i}>{singleNews.title}</Text>
-                ))}
+                    {this.state.news.map((singleNews, i) => (
+                        <NewsDetailsComponent key={i} news={singleNews}/>
+                    ))}
                 </ScrollView>
             </View>
         );
