@@ -1,10 +1,9 @@
-import fetch from 'isomorphic-fetch';
 const newsUrl = 'https://fullcontrol-api.herokuapp.com/news';
+const sportPath = '/sport';
 
 const apiService = {
-    getAllNews: async function() {
-        const news = await fetch(newsUrl);
-        return news;
+    getAllSportNews: function() {
+        return fetch(newsUrl + sportPath);
     }
 };
 

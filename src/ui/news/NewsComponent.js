@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView,
     ProgressBarAndroid, ToastAndroid } from 'react-native';
 import NewsDetailsComponent from './NewsDetailsComponent';
+import apiService from '../../services/api-service';
 
 class NewsComponent extends Component {
     state = {
@@ -13,7 +14,7 @@ class NewsComponent extends Component {
         ToastAndroid.show(newsTitle, ToastAndroid.SHORT);
     }
     componentDidMount() {
-        return fetch('https://fullcontrol-api.herokuapp.com/news/sport')
+        return apiService.getAllSportNews()
             .then((response) => response.json())
             .then((news) => {
                 this.setState({news, isLoading: false});
@@ -34,7 +35,7 @@ class NewsComponent extends Component {
 
         return (
             <View style={styles.container}>
-                <Text>News</Text>
+                <Text>Sport news</Text>
                 <ScrollView>
                     {this.state.news.map((singleNews, i) => (
                         <NewsDetailsComponent key={i}
