@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, Image, View, StyleSheet } from 'react-native';
+import { Text, Image, View, StyleSheet, TouchableHighlight } from 'react-native';
 
 const NewsDetailsComponent = ({ news, handlePress }) => (
-    <View style={styles.container}>
-        <Image 
-            style={{width: '50%', height: 50, justifyContent: 'center'}}
-            source={{uri: news.urlToImage}}/>
-        <Text
-            style={styles.title}
-            onPress={() => handlePress(news.url)}>{news.title}</Text>
+    <View>
+        <TouchableHighlight
+                onPress={() => handlePress(news.url)}>
+            <View style={styles.container}>
+                <Image 
+                    style={{width: '50%', height: 50, justifyContent: 'center'}}
+                    source={{uri: news.urlToImage}}/>
+                <Text
+                    style={styles.title}>
+                    {news.title}
+                </Text>
+            </View>
+        </TouchableHighlight>
     </View>
 );
 
