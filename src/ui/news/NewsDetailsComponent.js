@@ -5,7 +5,7 @@ import { Text, Image, View, StyleSheet, TouchableHighlight } from 'react-native'
 const NewsDetailsComponent = ({ news, handlePress }) => (
     <View>
         <TouchableHighlight
-                onPress={() => handlePress(news.url)}>
+            onPress={() => handlePress(news.url)}>
             <View style={styles.container}>
                 <Image 
                     style={{width: '50%', height: 50, justifyContent: 'center'}}

@@ -13,7 +13,6 @@ class NewsAppComponent extends Component {
     }
 
     getImageSourceFromType = (type) => {
-        console.log(type);
         switch(type) {
             case 'any':
                 return require('../../assets/news_carousel.jpg');
