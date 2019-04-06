@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NewsComponent from './news/NewsComponent';
-import { Text, Image, View, StyleSheet, TouchableHighlight  } from 'react-native';
+import { Text, ImageBackground , View, StyleSheet, TouchableHighlight  } from 'react-native';
 import types from '../enums/types';
 
 class NewsAppComponent extends Component {
@@ -30,9 +30,16 @@ class NewsAppComponent extends Component {
                                 style={styles.inputWrap}
                                 key={i}
                                 onPress={() => this.handleSelectionOfType(type)}>
-                                <Image
-                                    style={styles.carouselImage}
-                                    source={this.getImageSourceFromType(type)}/>
+                                <View>
+                                    <ImageBackground 
+                                        style={styles.carouselImage}
+                                        source={this.getImageSourceFromType(type)}>
+                                        <View style={styles.textContainet}>
+                                            <Text style={styles.typeText}>{type.toUpperCase()}</Text>
+                                        </View>
+                                    </ImageBackground>
+                                </View>
+                                
                             </TouchableHighlight>
                         );}
                     )}
@@ -52,6 +59,19 @@ const styles = StyleSheet.create({
     carouselImage: {
         width: '100%',
         height: 200
+    },
+    typeText: {
+        color: '#db0d70',
+        fontWeight: 'bold'
+    },
+    textContainet: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     row: {
         flex: 1,
