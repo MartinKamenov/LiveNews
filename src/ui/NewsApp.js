@@ -14,10 +14,10 @@ class NewsAppComponent extends Component {
 
     getImageSourceFromType = (type) => {
         switch(type) {
-            case 'any':
-                return require('../../assets/news_carousel.jpg');
-            case 'sport':
-                return require('../../assets/sport_carousel.jpg');
+        case 'any':
+            return require('../../assets/news_carousel.jpg');
+        case 'sport':
+            return require('../../assets/sport_carousel.jpg');
         }
     }
     render() {
@@ -33,16 +33,16 @@ class NewsAppComponent extends Component {
                                     style={styles.carouselImage}
                                     source={this.getImageSourceFromType(type)}/>
                             </TouchableHighlight>
-                        )}
+                        );}
                     )}
                 </View>
             );
         }
 
         switch(this.state.selectedType) {
-            case 'any':
-            case 'sport':
-                return <NewsComponent/>;
+        case 'any':
+        case 'sport':
+            return <NewsComponent/>;
         }
     }
 }

@@ -27,10 +27,10 @@ class NewsComponent extends Component {
     render() { 
         if(this.state.isLoading) {
             return (
-              <View style={styles.container}>
-                <ProgressBarAndroid/>
-                <Text style={{ color: '#fff' }}>Fetching news</Text>
-              </View>
+                <View style={styles.container}>
+                    <ProgressBarAndroid/>
+                    <Text style={{ color: '#fff' }}>Fetching news</Text>
+                </View>
             );
         }
 
@@ -51,10 +51,10 @@ class NewsComponent extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#000',
-      alignItems: 'center',
-      justifyContent: 'center'
+        flex: 1,
+        backgroundColor: '#000',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
  

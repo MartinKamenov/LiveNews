@@ -40,7 +40,8 @@ NewsDetailsComponent.propTypes = {
         description: PropTypes.string.isRequired,
         urlToImage: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired
-    })
+    }),
+    handlePress: PropTypes.func.isRequired
 };
  
 export default NewsDetailsComponent;
