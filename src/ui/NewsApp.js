@@ -23,10 +23,11 @@ class NewsAppComponent extends Component {
     render() {
         if(!this.state.selectedType) {
             return (
-                <View>
+                <View style={styles.row}>
                     {types.map((type, i) => { 
                         return (
                             <TouchableHighlight
+                                style={styles.inputWrap}
                                 key={i}
                                 onPress={() => this.handleSelectionOfType(type)}>
                                 <Image
@@ -50,7 +51,18 @@ class NewsAppComponent extends Component {
 const styles = StyleSheet.create({
     carouselImage: {
         width: '100%',
-        height: '50%'
+        height: 200
+    },
+    row: {
+        flex: 1,
+        flexDirection: "row"
+    },
+    inputWrap: {
+        flex: 1,
+        borderColor: "#000000",
+        borderBottomWidth: 1,
+        marginBottom: 10,
+        width: '50%'
     }
 });
  

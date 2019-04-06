@@ -29,7 +29,9 @@ const styles = StyleSheet.create({
     },
     title: {
         color: '#fff',
-        width: 200
+        width: 200,
+        textAlign: 'center',
+        fontWeight: 'bold',
     }
 });
 
