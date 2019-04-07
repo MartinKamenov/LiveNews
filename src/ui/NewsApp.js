@@ -75,11 +75,11 @@ const styles = StyleSheet.create({
     },
     row: {
         flex: 1,
-        flexDirection: "row"
+        flexDirection: 'row'
     },
     inputWrap: {
         flex: 1,
-        borderColor: "#000000",
+        borderColor: '#000000',
         borderBottomWidth: 1,
         marginBottom: 10,
         width: '50%'
