@@ -16,7 +16,9 @@ class NewsComponent extends Component {
         Linking.openURL(url);
     }
     componentDidMount() {
-        const type = this.props.type;
+        const { navigation } = this.props;
+        const type = navigation.getParam('type', 'any');
+        console.log(type);
         return apiService.getAllNews(type)
             .then((response) => response.json())
             .then((news) => {
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
 });
 
 NewsComponent.propTypes = {
-    type: PropTypes.string.isRequired
+    navigation: PropTypes.object.isRequired
 };
  
 export default NewsComponent;

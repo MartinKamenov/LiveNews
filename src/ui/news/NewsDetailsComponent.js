@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Text, Image, View, StyleSheet, TouchableHighlight } from 'react-native';
 
 const NewsDetailsComponent = ({ news, handlePress }) => (
-    <View>
+    <View style={styles.wrapper}>
         <TouchableHighlight
+            style={styles.touchableContainer}
             onPress={() => handlePress(news.url)}>
             <View style={styles.container}>
                 <Image 
@@ -20,7 +21,15 @@ const NewsDetailsComponent = ({ news, handlePress }) => (
 );
 
 const styles = StyleSheet.create({
+    wrapper: {
+        height: 200
+    },
+    touchableContainer: {
+        width: '100%',
+        height: 200
+    },
     container: {
+        height: 200,
         width: '100%',
         flex: 1,
         backgroundColor: '#000',
