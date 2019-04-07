@@ -50,7 +50,7 @@ class NewsAppComponent extends Component {
         switch(this.state.selectedType) {
         case 'any':
         case 'sport':
-            return <NewsComponent/>;
+            return <NewsComponent type={this.state.selectedType}/>;
         }
     }
 }

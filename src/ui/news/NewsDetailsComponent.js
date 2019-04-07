@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 
 NewsDetailsComponent.propTypes = {
     news: PropTypes.shape({
-        author: PropTypes.string.isRequired,
+        author: PropTypes.string,
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         urlToImage: PropTypes.string.isRequired,

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView,
     ProgressBarAndroid, ToastAndroid, Linking } from 'react-native';
 import NewsDetailsComponent from './NewsDetailsComponent';
 import apiService from '../../services/api-service';
+import PropTypes from 'prop-types';
 
 class NewsComponent extends Component {
     state = {
@@ -15,7 +16,8 @@ class NewsComponent extends Component {
         Linking.openURL(url);
     }
     componentDidMount() {
-        return apiService.getAllSportNews()
+        const type = this.props.type;
+        return apiService.getAllNews(type)
             .then((response) => response.json())
             .then((news) => {
                 this.setState({news, isLoading: false});
@@ -57,5 +59,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 });
+
+NewsComponent.propTypes = {
+    type: PropTypes.string.isRequired
+};
  
 export default NewsComponent;
