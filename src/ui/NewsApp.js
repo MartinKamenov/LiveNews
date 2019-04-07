@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import NewsComponent from './news/NewsComponent';
 import { Text, ImageBackground , View, StyleSheet, TouchableHighlight  } from 'react-native';
+import PropTypes from 'prop-types';
 import types from '../enums/types';
 
 class NewsAppComponent extends Component {
-    state = {
-        selectedType: null
-    }
 
     handleSelectionOfType = (selectedType) => {
-        this.setState({selectedType});
+        const { navigate } = this.props.navigation;
+        navigate('NewsComponent', { type: selectedType });
     }
 
     getImageSourceFromType = (type) => {
@@ -21,37 +20,29 @@ class NewsAppComponent extends Component {
         }
     }
     render() {
-        if(!this.state.selectedType) {
-            return (
-                <View style={styles.row}>
-                    {types.map((type, i) => { 
-                        return (
-                            <TouchableHighlight
-                                style={styles.inputWrap}
-                                key={i}
-                                onPress={() => this.handleSelectionOfType(type)}>
-                                <View>
-                                    <ImageBackground 
-                                        style={styles.carouselImage}
-                                        source={this.getImageSourceFromType(type)}>
-                                        <View style={styles.textContainet}>
-                                            <Text style={styles.typeText}>{type.toUpperCase()}</Text>
-                                        </View>
-                                    </ImageBackground>
-                                </View>
-                                
-                            </TouchableHighlight>
-                        );}
-                    )}
-                </View>
-            );
-        }
-
-        switch(this.state.selectedType) {
-        case 'any':
-        case 'sport':
-            return <NewsComponent type={this.state.selectedType}/>;
-        }
+        return (
+            <View style={styles.row}>
+                {types.map((type, i) => { 
+                    return (
+                        <TouchableHighlight
+                            style={styles.inputWrap}
+                            key={i}
+                            onPress={() => this.handleSelectionOfType(type)}>
+                            <View>
+                                <ImageBackground 
+                                    style={styles.carouselImage}
+                                    source={this.getImageSourceFromType(type)}>
+                                    <View style={styles.textContainet}>
+                                        <Text style={styles.typeText}>{type.toUpperCase()}</Text>
+                                    </View>
+                                </ImageBackground>
+                            </View>
+                            
+                        </TouchableHighlight>
+                    );}
+                )}
+            </View>
+        );
     }
 }
 
@@ -85,5 +76,9 @@ const styles = StyleSheet.create({
         width: '50%'
     }
 });
+
+NewsAppComponent.propTypes = {
+    navigation: PropTypes.object.isRequired
+};
  
 export default NewsAppComponent;
