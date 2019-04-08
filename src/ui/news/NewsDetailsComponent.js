@@ -24,8 +24,10 @@ const NewsDetailsComponent = ({ news, handlePress }) => (
 const styles = StyleSheet.create({
     wrapper: {
         marginBottom: 20,
-        height: 100,
-        width: parseInt(100 / constants.newsOnRow, 10) + '%'
+        maxHeight: 200,
+        width: parseInt(100 / constants.newsOnRow, 10) + '%',
+        borderColor: '#ffffff',
+        borderWidth: 1
     },
     touchableContainer: {
         height: '100%',

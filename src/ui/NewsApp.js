@@ -43,7 +43,8 @@ class NewsAppComponent extends Component {
                                 <View>
                                     <ImageBackground 
                                         style={styles.carouselImage}
-                                        source={this.getImageSourceFromType(type)}>
+                                        source={this.getImageSourceFromType(type)}
+                                        imageStyle={styles.carouselImageStyle}>
                                         <View style={styles.textContainet}>
                                             <Text style={styles.typeText}>{type.toUpperCase()}</Text>
                                         </View>
@@ -68,6 +69,11 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 200
     },
+    carouselImageStyle: {
+        borderColor: '#000000',
+        borderWidth: 2,
+        borderRadius: 50
+    },
     typeText: {
         color: '#0cff89',
         fontWeight: 'bold',
@@ -90,8 +96,6 @@ const styles = StyleSheet.create({
     },
     inputWrap: {
         flex: 1,
-        borderColor: '#000000',
-        borderBottomWidth: 1,
         marginBottom: 10,
         width: '50%',
         height: 200
