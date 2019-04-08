@@ -10,7 +10,14 @@ class NewsComponent extends Component {
         const type = navigation.getParam('type', 'any');
         const title = type.charAt(0).toUpperCase() + type.slice(1);
         return {
-            title
+            title,
+            headerTitleStyle: {
+                color: '#ffffff'
+            },
+            headerStyle: {
+                backgroundColor: '#000000'
+            },
+            headerTintColor: '#ffffff'
         };
     };
     state = {

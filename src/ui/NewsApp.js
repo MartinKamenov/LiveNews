@@ -7,6 +7,12 @@ import types from '../enums/types';
 class NewsAppComponent extends Component {
     static navigationOptions = {
         title: 'NewsApp',
+        headerTitleStyle: {
+            color: '#ffffff'
+        },
+        headerStyle: {
+            backgroundColor: '#000000'
+        }
     };
     handleSelectionOfType = (selectedType) => {
         const { navigate } = this.props.navigation;
