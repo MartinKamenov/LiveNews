@@ -51,15 +51,31 @@ class NewsComponent extends Component {
             );
         }
 
+        let news = this.state.news;
+        let twoByTwoNews = [];
+        while (news.length > 0) {
+            chunk = news.splice(0, 2);
+            twoByTwoNews.push(chunk);
+        }
+
+        news = twoByTwoNews;
+
         return (
             <View style={styles.container}>
                 <ScrollView>
                     <View style={styles.scrollContainer}>
-                        {this.state.news.map((singleNews, i) => (
-                            <NewsDetailsComponent key={i}
-                                news={singleNews}
-                                handlePress={this.handlePress}/>
-                        ))}
+                        {news.map((twoNews, i) => {
+                            return (<View style={styles.row} key={i}>
+                                {twoNews.map((singleNews, j) => {
+                                    return (
+                                        <NewsDetailsComponent key={i * 2 + j}
+                                            news={singleNews}
+                                            handlePress={this.handlePress}/>
+                                    );
+                                })}
+                            </View>)
+                        }
+                        )}
                     </View>
                 </ScrollView>
             </View>
@@ -76,6 +92,11 @@ const styles = StyleSheet.create({
     },
     scrollContainer: {
         marginTop: 50
+    },
+    row: {
+        flex: 1,
+        flexDirection: 'row',
+        height: 200
     }
 });
 

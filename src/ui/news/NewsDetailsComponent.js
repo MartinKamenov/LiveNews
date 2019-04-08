@@ -23,7 +23,8 @@ const NewsDetailsComponent = ({ news, handlePress }) => (
 const styles = StyleSheet.create({
     wrapper: {
         marginBottom: 20,
-        height: 100
+        height: 100,
+        width: '50%'
     },
     touchableContainer: {
         height: '100%',
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     },
     title: {
         color: '#fff',
-        width: 200,
+        width: '80%',
         textAlign: 'center',
         fontWeight: 'bold'
     }
