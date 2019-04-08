@@ -9,7 +9,12 @@ import constants from '../../constants/constants';
 class NewsComponent extends Component {
     static navigationOptions = ({ navigation }) => {
         const type = navigation.getParam('type', 'any');
-        const title = type.charAt(0).toUpperCase() + type.slice(1);
+        const searchText = navigation.getParam('searchText', '');
+
+        let title = type.charAt(0).toUpperCase() + type.slice(1);
+        if(searchText) {
+            title = 'Search for ' + searchText;
+        }
         return {
             title,
             headerTitleStyle: {
