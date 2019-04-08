@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, ScrollView,
 import NewsDetailsComponent from './NewsDetailsComponent';
 import apiService from '../../services/api-service';
 import PropTypes from 'prop-types';
+import constants from '../../constants/constants';
 
 class NewsComponent extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -54,7 +55,7 @@ class NewsComponent extends Component {
         let news = this.state.news;
         let twoByTwoNews = [];
         while (news.length > 0) {
-            chunk = news.splice(0, 2);
+            chunk = news.splice(0, constants.newsOnRow);
             twoByTwoNews.push(chunk);
         }
 
@@ -68,7 +69,7 @@ class NewsComponent extends Component {
                             return (<View style={styles.row} key={i}>
                                 {twoNews.map((singleNews, j) => {
                                     return (
-                                        <NewsDetailsComponent key={i * 2 + j}
+                                        <NewsDetailsComponent key={i * constants.newsOnRow + j}
                                             news={singleNews}
                                             handlePress={this.handlePress}/>
                                     );

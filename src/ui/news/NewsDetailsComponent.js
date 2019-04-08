@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, Image, View, StyleSheet, TouchableHighlight } from 'react-native';
+import constants from '../../constants/constants';
 
 const NewsDetailsComponent = ({ news, handlePress }) => (
     <View style={styles.wrapper}>
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     wrapper: {
         marginBottom: 20,
         height: 100,
-        width: '50%'
+        width: parseInt(100 / constants.newsOnRow, 10) + '%'
     },
     touchableContainer: {
         height: '100%',
