@@ -29,32 +29,41 @@ class NewsAppComponent extends Component {
     }
     render() {
         return (
-            <View style={styles.row}>
-                {types.map((type, i) => { 
-                    return (
-                        <TouchableHighlight
-                            style={styles.inputWrap}
-                            key={i}
-                            onPress={() => this.handleSelectionOfType(type)}>
-                            <View>
-                                <ImageBackground 
-                                    style={styles.carouselImage}
-                                    source={this.getImageSourceFromType(type)}>
-                                    <View style={styles.textContainet}>
-                                        <Text style={styles.typeText}>{type.toUpperCase()}</Text>
-                                    </View>
-                                </ImageBackground>
-                            </View>
-                            
-                        </TouchableHighlight>
-                    );}
-                )}
-            </View>
+            <ImageBackground 
+                    style={styles.containerBackground}
+                    source={require('../../assets/news_background.jpg')}>
+                <View style={styles.row}>
+                    
+                    {types.map((type, i) => { 
+                        return (
+                            <TouchableHighlight
+                                style={styles.inputWrap}
+                                key={i}
+                                onPress={() => this.handleSelectionOfType(type)}>
+                                <View>
+                                    <ImageBackground 
+                                        style={styles.carouselImage}
+                                        source={this.getImageSourceFromType(type)}>
+                                        <View style={styles.textContainet}>
+                                            <Text style={styles.typeText}>{type.toUpperCase()}</Text>
+                                        </View>
+                                    </ImageBackground>
+                                </View>
+                                
+                            </TouchableHighlight>
+                        );}
+                    )}
+                </View>
+            </ImageBackground>
         );
     }
 }
 
 const styles = StyleSheet.create({
+    containerBackground: {
+        width: '100%',
+        height: '100%'
+    },
     carouselImage: {
         width: '100%',
         height: 200

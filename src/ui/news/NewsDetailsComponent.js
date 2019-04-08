@@ -22,14 +22,14 @@ const NewsDetailsComponent = ({ news, handlePress }) => (
 
 const styles = StyleSheet.create({
     wrapper: {
-        height: 200
+        marginBottom: 20,
+        height: 100
     },
     touchableContainer: {
-        width: '100%',
-        height: 200
+        height: '100%',
+        width: '100%'
     },
     container: {
-        height: 200,
         width: '100%',
         flex: 1,
         backgroundColor: '#000',

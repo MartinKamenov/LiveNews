@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "lint": "eslint ./src",
-    "lintfix": "eslint ./src --fix"
+    "lintfix": "eslint ./src --fix",
+    "build:android": "expo build:android"
   },
   "dependencies": {
     "@types/isomorphic-fetch": "0.0.35",

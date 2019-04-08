@@ -53,13 +53,14 @@ class NewsComponent extends Component {
 
         return (
             <View style={styles.container}>
-                <Text>Sport news</Text>
                 <ScrollView>
-                    {this.state.news.map((singleNews, i) => (
-                        <NewsDetailsComponent key={i}
-                            news={singleNews}
-                            handlePress={this.handlePress}/>
-                    ))}
+                    <View style={styles.scrollContainer}>
+                        {this.state.news.map((singleNews, i) => (
+                            <NewsDetailsComponent key={i}
+                                news={singleNews}
+                                handlePress={this.handlePress}/>
+                        ))}
+                    </View>
                 </ScrollView>
             </View>
         );
@@ -72,6 +73,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    scrollContainer: {
+        marginTop: 50
     }
 });
 
