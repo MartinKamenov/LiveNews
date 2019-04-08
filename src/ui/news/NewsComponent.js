@@ -33,7 +33,12 @@ class NewsComponent extends Component {
     componentDidMount() {
         const { navigation } = this.props;
         const type = navigation.getParam('type', 'any');
-        return apiService.getAllNews(type)
+        const searchText = navigation.getParam('searchText', '');
+        let query = '';
+        if(searchText) {
+            query += `?q=${searchText}`;
+        }
+        return apiService.getAllNews(type, query)
             .then((response) => response.json())
             .then((news) => {
                 this.setState({news, isLoading: false});

@@ -3,11 +3,11 @@ const sportPath = '/sport';
 const newsPath = '/';
 
 const apiService = {
-    getAllNews: function(type) {
+    getAllNews: function(type, query) {
         let url = newsUrl;
         switch(type) {
         case 'any':
-            url += newsPath;
+            url += newsPath + query;
             break;
         case 'sport':
             url += sportPath;

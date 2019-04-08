@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NewsComponent from './news/NewsComponent';
+import SearchFormComponent from './search/SearchFormComponent';
 import { Text, ImageBackground , View, StyleSheet, TouchableHighlight  } from 'react-native';
 import PropTypes from 'prop-types';
 import types from '../enums/types';
@@ -14,6 +14,19 @@ class NewsAppComponent extends Component {
             backgroundColor: '#000000'
         }
     };
+
+    state = {
+        searchText: ''
+    }
+
+    handleChangeSearchInput = (text) => {
+        this.setState({searchText: text});
+    }
+    handleSearch = () => {
+        const searchText = this.state.searchText;
+        const { navigate } = this.props.navigation;
+        navigate('NewsComponent', { type: 'any', searchText });
+    }
     handleSelectionOfType = (selectedType) => {
         const { navigate } = this.props.navigation;
         navigate('NewsComponent', { type: selectedType });
@@ -32,8 +45,12 @@ class NewsAppComponent extends Component {
             <ImageBackground 
                     style={styles.containerBackground}
                     source={require('../../assets/news_background.jpg')}>
-                <View style={styles.row}>
-                    
+                <SearchFormComponent
+                    handleSearch={this.handleSearch}
+                    handleChangeSearchInput={this.handleChangeSearchInput}/>
+
+                <View
+                    style={styles.row}>
                     {types.map((type, i) => { 
                         return (
                             <TouchableHighlight

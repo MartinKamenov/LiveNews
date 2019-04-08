@@ -52,9 +52,9 @@ NewsDetailsComponent.propTypes = {
     news: PropTypes.shape({
         author: PropTypes.string,
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        description: PropTypes.string,
         urlToImage: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
+        url: PropTypes.string
     }),
     handlePress: PropTypes.func.isRequired
 };
