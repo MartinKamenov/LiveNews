@@ -4,7 +4,7 @@ import NewsComponent from './src/ui/news/NewsComponent';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
-    NewsApp: {screen: NewsApp},
+    NewsApp: {screen: NewsApp },
     NewsComponent: {screen: NewsComponent},
 });
 

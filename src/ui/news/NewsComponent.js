@@ -6,6 +6,13 @@ import apiService from '../../services/api-service';
 import PropTypes from 'prop-types';
 
 class NewsComponent extends Component {
+    static navigationOptions = ({ navigation }) => {
+        const type = navigation.getParam('type', 'any');
+        const title = type.charAt(0).toUpperCase() + type.slice(1);
+        return {
+            title
+        };
+    };
     state = {
         isLoading: true,
         news: []
@@ -18,13 +25,12 @@ class NewsComponent extends Component {
     componentDidMount() {
         const { navigation } = this.props;
         const type = navigation.getParam('type', 'any');
-        console.log(type);
         return apiService.getAllNews(type)
             .then((response) => response.json())
             .then((news) => {
                 this.setState({news, isLoading: false});
             })
-            .catch((error) =>{
+            .catch((error) => {
                 console.error(error);
             });
     }

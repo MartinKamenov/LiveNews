@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import types from '../enums/types';
 
 class NewsAppComponent extends Component {
-
+    static navigationOptions = {
+        title: 'NewsApp',
+    };
     handleSelectionOfType = (selectedType) => {
         const { navigate } = this.props.navigation;
         navigate('NewsComponent', { type: selectedType });
@@ -52,8 +54,10 @@ const styles = StyleSheet.create({
         height: 200
     },
     typeText: {
-        color: '#db0d70',
-        fontWeight: 'bold'
+        color: '#0cff89',
+        fontWeight: 'bold',
+        backgroundColor: '#000000aa',
+        padding: 5
     },
     textContainet: {
         position: 'absolute',
@@ -66,14 +70,16 @@ const styles = StyleSheet.create({
     },
     row: {
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        height: 200
     },
     inputWrap: {
         flex: 1,
         borderColor: '#000000',
         borderBottomWidth: 1,
         marginBottom: 10,
-        width: '50%'
+        width: '50%',
+        height: 200
     }
 });
 
