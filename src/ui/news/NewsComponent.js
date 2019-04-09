@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView,
     ProgressBarAndroid, ToastAndroid, Linking } from 'react-native';
-import NewsDetailsComponent from './NewsDetailsComponent';
+import NewsRowComponent from './NewsRowComponent';
 import apiService from '../../services/api-service';
 import PropTypes from 'prop-types';
 import constants from '../../constants/constants';
@@ -62,31 +62,27 @@ class NewsComponent extends Component {
             );
         }
 
-        let news = this.state.news;
-        let twoByTwoNews = [];
+        let news = this.state.news.slice();
+        let allRows = [];
         while (news.length > 0) {
             chunk = news.splice(0, constants.newsOnRow);
-            twoByTwoNews.push(chunk);
+            allRows.push(chunk);
         }
-
-        news = twoByTwoNews;
 
         return (
             <View style={styles.container}>
                 <ScrollView>
                     <View style={styles.scrollContainer}>
-                        {news.map((twoNews, i) => {
-                            return (<View style={styles.row} key={i}>
-                                {twoNews.map((singleNews, j) => {
-                                    return (
-                                        <NewsDetailsComponent key={i * constants.newsOnRow + j}
-                                            news={singleNews}
-                                            handlePress={this.handlePress}/>
-                                    );
-                                })}
-                            </View>);
+                        {
+                            allRows.map((newsRow, i) => {
+                                return (
+                                    <NewsRowComponent 
+                                        key={i}
+                                        newsRow={newsRow}
+                                        handlePress={this.handlePress}/>
+                                );
+                            })
                         }
-                        )}
                     </View>
                 </ScrollView>
             </View>
@@ -103,11 +99,6 @@ const styles = StyleSheet.create({
     },
     scrollContainer: {
         marginTop: 50
-    },
-    row: {
-        flex: 1,
-        flexDirection: 'row',
-        height: 200
     }
 });
 

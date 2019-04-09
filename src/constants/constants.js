@@ -1,3 +1,5 @@
 export default constants =  {
-    newsOnRow: 2
+    appTitle: 'LiveNews',
+    newsOnRow: 2,
+    typesOnRow: 2
 };

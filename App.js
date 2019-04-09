@@ -1,4 +1,4 @@
-import NewsApp from './src/ui/NewsApp';
+import NewsApp from './src/ui/main/NewsApp';
 import NewsComponent from './src/ui/news/NewsComponent';
 
 import {createStackNavigator, createAppContainer} from 'react-navigation';
