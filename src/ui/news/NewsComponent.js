@@ -84,7 +84,7 @@ class NewsComponent extends Component {
                                             handlePress={this.handlePress}/>
                                     );
                                 })}
-                            </View>)
+                            </View>);
                         }
                         )}
                     </View>

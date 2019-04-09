@@ -15,7 +15,7 @@ const SearchFormComponent = ({ handleChangeSearchInput, handleSearch }) => {
                 onPress={handleSearch}/>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     searchInput: {

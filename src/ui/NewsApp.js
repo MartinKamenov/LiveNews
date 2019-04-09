@@ -43,8 +43,8 @@ class NewsAppComponent extends Component {
     render() {
         return (
             <ImageBackground 
-                    style={styles.containerBackground}
-                    source={require('../../assets/news_background.jpg')}>
+                style={styles.containerBackground}
+                source={require('../../assets/news_background.jpg')}>
                 <SearchFormComponent
                     handleSearch={this.handleSearch}
                     handleChangeSearchInput={this.handleChangeSearchInput}/>
