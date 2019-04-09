@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import SearchFormComponent from './search/SearchFormComponent';
+import SearchFormComponent from '../search/SearchFormComponent';
 import { Text, ImageBackground , View, StyleSheet, TouchableHighlight  } from 'react-native';
 import PropTypes from 'prop-types';
-import types from '../enums/types';
+import types from '../../enums/types';
+import constants from '../../constants/constants';
 
 class NewsAppComponent extends Component {
     static navigationOptions = {
@@ -35,16 +36,23 @@ class NewsAppComponent extends Component {
     getImageSourceFromType = (type) => {
         switch(type) {
         case 'any':
-            return require('../../assets/news_carousel.jpg');
+            return require('../../../assets/news_carousel.jpg');
         case 'sport':
-            return require('../../assets/sport_carousel.jpg');
+            return require('../../../assets/sport_carousel.jpg');
         }
     }
     render() {
+        let copyOfTypes = Object.assign({}, types);
+        let rowOfTypes = [];
+        while (copyOfTypes.length > 0) {
+            chunk = news.splice(0, constants.typesOnRow);
+            rowOfTypes.push(chunk);
+        }
+
         return (
             <ImageBackground 
                 style={styles.containerBackground}
-                source={require('../../assets/news_background.jpg')}>
+                source={require('../../../assets/news_background.jpg')}>
                 <SearchFormComponent
                     handleSearch={this.handleSearch}
                     handleChangeSearchInput={this.handleChangeSearchInput}/>

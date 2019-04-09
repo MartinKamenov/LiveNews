@@ -1,3 +1,4 @@
 export default constants =  {
-    newsOnRow: 2
+    newsOnRow: 2,
+    typesOnRow: 2
 };
