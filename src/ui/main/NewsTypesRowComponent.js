@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, ImageBackground , View, StyleSheet, TouchableHighlight  } from 'react-native';
 import PropTypes from 'prop-types';
+import constants from '../../constants/constants';
 
 const NewsTypesRowComponent = ({rowTypes, handleSelectionOfType, getImageSourceFromType}) => ( 
     <View style={styles.row}>
@@ -60,14 +61,15 @@ const styles = StyleSheet.create({
     inputWrap: {
         flex: 1,
         marginBottom: 10,
-        width: '50%',
+        width: parseInt(100 / constants.typesOnRow, 10) + '%',
         height: 200
     }
 });
 
 NewsTypesRowComponent.propTypes = {
     rowTypes: PropTypes.array.isRequired,
-    handleSelectionOfType: PropTypes.func.isRequired
+    handleSelectionOfType: PropTypes.func.isRequired,
+    getImageSourceFromType: PropTypes.func.isRequired
 };
  
 export default NewsTypesRowComponent;

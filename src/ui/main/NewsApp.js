@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import SearchFormComponent from '../search/SearchFormComponent';
 import NewsTypesRowComponent from './NewsTypesRowComponent';
-import { Text, ImageBackground , View, StyleSheet, TouchableHighlight  } from 'react-native';
+import { ImageBackground , View, StyleSheet  } from 'react-native';
 import PropTypes from 'prop-types';
 import types from '../../enums/types';
 import constants from '../../constants/constants';
 
 class NewsAppComponent extends Component {
     static navigationOptions = {
-        title: 'LiveNews',
+        title: constants.appTitle,
         headerTitleStyle: {
             color: '#ffffff'
         },

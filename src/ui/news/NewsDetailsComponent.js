@@ -53,7 +53,7 @@ NewsDetailsComponent.propTypes = {
         author: PropTypes.string,
         title: PropTypes.string.isRequired,
         description: PropTypes.string,
-        urlToImage: PropTypes.string.isRequired,
+        urlToImage: PropTypes.string,
         url: PropTypes.string
     }),
     handlePress: PropTypes.func.isRequired
