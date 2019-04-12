@@ -8,7 +8,7 @@ export function getGithubProfileSuccess(profile) {
 
 export function getNews(type, keywords) {
     return async function(dispatch) {
-        const query = '?q=keywords';
+        const query = `?q=${keywords}`;
         const res = await apiService.getAllNews(type, query);
         const news = res.data;
         return dispatch(getNewsSuccess(news));
