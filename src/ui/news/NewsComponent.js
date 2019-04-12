@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as newsActions from '../../actions/newsActions';
+
 import { StyleSheet, Text, View, ScrollView,
     ProgressBarAndroid, ToastAndroid, Linking } from 'react-native';
 import NewsRowComponent from './NewsRowComponent';
@@ -36,6 +41,7 @@ class NewsComponent extends Component {
         Linking.openURL(url);
     }
     componentDidMount() {
+        console.log(this.props);
         const { navigation } = this.props;
         const type = navigation.getParam('type', 'any');
         const searchText = navigation.getParam('searchText', '');
@@ -105,5 +111,17 @@ const styles = StyleSheet.create({
 NewsComponent.propTypes = {
     navigation: PropTypes.object.isRequired
 };
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        news: state.news
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(newsActions, dispatch)
+    };
+}
  
-export default NewsComponent;
+export default connect(mapStateToProps, mapDispatchToProps)(NewsComponent);
