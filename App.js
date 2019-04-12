@@ -1,13 +1,8 @@
-import NewsApp from './src/ui/main/NewsApp';
-import NewsComponent from './src/ui/news/NewsComponent';
+import React from 'react';
+import NavigationComponent from './src/ui/navigation/NavigationComponent';
 
-import {createStackNavigator, createAppContainer} from 'react-navigation';
-
-const MainNavigator = createStackNavigator({
-    NewsApp: {screen: NewsApp },
-    NewsComponent: {screen: NewsComponent},
-});
-
-const App = createAppContainer(MainNavigator);
+const App = () => (
+    <NavigationComponent/>
+);
 
 export default App;
