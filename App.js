@@ -1,13 +1,14 @@
-import NewsApp from './src/ui/main/NewsApp';
-import NewsComponent from './src/ui/news/NewsComponent';
+import React from 'react';
+import NavigationComponent from './src/ui/navigation/NavigationComponent';
+import configureStore from './src/store/configurationStore';
+import { Provider } from 'react-redux';
 
-import {createStackNavigator, createAppContainer} from 'react-navigation';
+const store = configureStore();
 
-const MainNavigator = createStackNavigator({
-    NewsApp: {screen: NewsApp },
-    NewsComponent: {screen: NewsComponent},
-});
-
-const App = createAppContainer(MainNavigator);
+const App = () => (
+    <Provider store={store}>
+        <NavigationComponent/>
+    </Provider>
+);
 
 export default App;
