@@ -6,9 +6,9 @@ import NewsDetailsComponent from './NewsDetailsComponent';
 const NewsRowComponent = ({ newsRow, handlePress }) => {
     return (
         <View style={styles.row}>
-            {newsRow.map((singleNews, i) => {
+            {newsRow.map((singleNews) => {
                 return (
-                    <NewsDetailsComponent key={i}
+                    <NewsDetailsComponent key={singleNews.newsId}
                         news={singleNews}
                         handlePress={handlePress}/>
                 );
