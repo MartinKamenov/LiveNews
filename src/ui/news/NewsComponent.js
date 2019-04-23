@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView,
-    ProgressBarAndroid, ToastAndroid, Linking } from 'react-native';
+    ProgressBarAndroid, Linking } from 'react-native';
 import NewsRowComponent from './NewsRowComponent';
 import apiService from '../../services/api-service';
 import PropTypes from 'prop-types';
 import constants from '../../constants/constants';
+import Toast from 'react-native-easy-toast';
+const toastDuration = 1000;
 
 class NewsComponent extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -31,8 +33,8 @@ class NewsComponent extends Component {
         news: []
     };
 
-    handlePress(url) {
-        ToastAndroid.show(url, ToastAndroid.SHORT);
+    handlePress = (url) => {
+        this.refs.toast.show(url, toastDuration);
         Linking.openURL(url);
     }
     componentDidMount() {
@@ -85,6 +87,10 @@ class NewsComponent extends Component {
                         }
                     </View>
                 </ScrollView>
+                <Toast
+                    style={styles.toast}
+                    textStyle={{color: 'black'}}
+                    ref="toast"/>
             </View>
         );
     }
@@ -99,6 +105,12 @@ const styles = StyleSheet.create({
     },
     scrollContainer: {
         marginTop: 50
+    },
+    toast: {
+        position: 'absolute',
+        bottom:0,
+        backgroundColor: 'grey',
+        width: '80%'
     }
 });
 
